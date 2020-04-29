@@ -1,0 +1,19 @@
+version: '2.3'
+services:
+  cap:
+    build:
+      context: .
+    user:
+      root
+    ports:
+      - '8022:22'
+    cpuset:
+      0-3
+    mem_limit:
+      16g
+    volumes:
+      - "../:$HOME/shortcut"
+    environment:
+      - GRANT_SUDO=yes
+    tty:
+      true
